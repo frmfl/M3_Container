@@ -44,11 +44,11 @@ joe@pc ~  $ <b>ssh root@192.168.1.3</b>
 </pre>
 - Enter a reachable address for the DNS server, most likely this will be the routers IP address:
 <pre>
-root@container_forte ~  $ <b>echo "nameserver \<IP address of nameserver\>" > /etc/resolv.conf</b>
+root@container_forte ~  $ <b>vi /etc/resolv.conf</b>
 </pre>
 - Edit the script that will set the default gateway after starting the container:
 <pre>
-root@container_forte ~  $ <b>vi /bin/start_net</b>
+root@container_forte ~  $ <b>vi /bin/start_net.sh</b>
 </pre>
 - Press <b>\<i\></b> to enter the edit mode of vi and exchange the IP address of the default gateway, most likely this will also be the routers IP address. Store and exit vi with the keys <b>\<ESC\>\<:\>\<x\></b>.
 - Execute the script, so the default route gets set:
@@ -96,3 +96,10 @@ Important: Before downloading or cleaning the embedded resource, exit the system
 <img src="assets/watch_all.png" alt="Watch all - Function Blocks" height="1000"/></br>
 
 <img src="assets/monitoring.png" alt="Monitoring Function Blocks" height="1000"/></br>
+
+## Try further demo applications
+With the INSYS_Demo project four demo applications are shipped that you can play with as demonstrated above for the Blinky application.
+1. Blinky LED - Toggles the LED of your INSYS Router.
+2. Monitor digital IOs - Application monitoring your routers digital IOs.
+3. Monitor RAM usage - Application accessing your routers firmware through the commandline interface and retrieving current ram usage. Send ram usage in a message using Email or SMS.
+4. MQTT Ping Pong - Application involving two forte containers and one MQTT Broker container. Both forte containers exchange MQTT messages with each other through the MQTT Broker container.
